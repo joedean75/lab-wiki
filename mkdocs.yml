@@ -1,0 +1,97 @@
+site_name: Lab Wiki
+site_description: How the training pipelines, Forge, and the home lab work, how they are built, and how to run them.
+docs_dir: docs
+site_dir: site
+use_directory_urls: true
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - navigation.footer
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Light mode
+  font: false
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+nav:
+  - Home: index.md
+  - Start here:
+      - The big picture: start/overview.md
+      - Machine and toolchain: start/environment.md
+      - Timeline: start/timeline.md
+  - Concepts:
+      - How a language model is trained: concepts/llm-basics.md
+      - LoRA and QLoRA: concepts/lora-qlora.md
+      - Expert iteration and self-play: concepts/expert-iteration.md
+      - Evaluating and picking checkpoints: concepts/evaluation.md
+      - Distillation, RL and GRPO: concepts/grpo-rl.md
+      - Quantization and GGUF: concepts/quantization-gguf.md
+      - Inference speed on a CPU: concepts/inference-performance.md
+      - "Research: TRELLIS.2 and CADFusion": concepts/research-trellis2.md
+      - "Research: small base models": concepts/research-small-models.md
+  - Projects:
+      - Shared core (lab/core): projects/shared-core.md
+      - Assistant pipeline: projects/assistant-pipeline.md
+      - Coder pipeline: projects/coder-pipeline.md
+      - Coder rounds 1-5: projects/coder-rounds.md
+      - Forge CAD: projects/forge-cad.md
+      - Forge copilot training: projects/forge-copilot.md
+      - Pipeline_claude: projects/pipeline-claude.md
+      - Astra: projects/astra.md
+      - Handoff cards: projects/handoff-cards.md
+  - Infrastructure:
+      - Docker and OCI images: infrastructure/docker-oci.md
+      - Proxmox: infrastructure/proxmox.md
+      - llama.cpp: infrastructure/llama-cpp.md
+      - "Runbook: deploy a model": infrastructure/deploy-model.md
+      - "Runbook: this wiki": infrastructure/wiki-deploy.md
+      - GitHub repositories: infrastructure/github.md
+  - Reference:
+      - Command cheat sheet: reference/commands.md
+      - Gotchas and fixes: reference/gotchas.md
+      - Glossary: reference/glossary.md
